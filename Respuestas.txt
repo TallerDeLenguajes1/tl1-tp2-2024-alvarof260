@@ -1,6 +1,6 @@
 2.f) no se puede ver el archivo tp2_1_2.c porque se creo en otra 
-branch(rama), por lo que no se deberia de poder ver en otras ramas
+branch(rama), por lo que no se debería de poder ver en otras ramas
 2.f.2)la diferencia es que ahora se avanzo en la rama en la que
 se esta trabajando.
-2.f.3)ahora la rama Opcion_2 se unio las ramas en este caso se 
+2.f.3)ahora la rama Opcion_2 se unió las ramas en este caso se 
 siguen los commit en la rama main
