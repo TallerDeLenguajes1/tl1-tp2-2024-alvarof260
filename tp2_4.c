@@ -2,28 +2,47 @@
 #include <stdlib.h>
 #include <time.h>
 
-
-struct 
+struct
 {
-    int velocidad; //entre 1 y 3 GHz
-    int anio; //entre 2015 y 2023
-    int cantidad; //entre 1 y 8
-    char *tipo_cpu; //valores del arreglo tipos
+    int velocidad;  // entre 1 y 3 GHz
+    int anio;       // entre 2015 y 2023
+    int cantidad;   // entre 1 y 8
+    char *tipo_cpu; // valores del arreglo tipos
 } typedef computadora;
 
+void cargarPc(computadora pcs[], int n);
+void mostrarPc(computadora pcs[], int n);
+
+char tipos[6][10] = {"Intel", "AMD", "Celeron", "Athlon", "Core", "Pentium"};
 
 int main()
 {
     srand(time(NULL));
-    char tipos[6][10]={"Intel", "AMD", "Celeron", "Athlon", "Core", "Pentium"};
-    computadora pc;
-    pc.velocidad = 1 + rand() % 3;
-    pc.anio = 2015 + rand() % 9;
-    pc.cantidad = 1 + rand() % 8;
-    pc.tipo_cpu = tipos[1 + rand() % 6 ];
-    printf("%d\n", pc.velocidad);
-    printf("%d\n", pc.anio);
-    printf("%d\n", pc.cantidad);
-    printf("%s\n", pc.tipo_cpu);
+    computadora pcs[5];
+    cargarPc(pcs, 5);
+    mostrarPc(pcs,5);
     return 0;
+}
+
+void cargarPc(computadora pcs[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        pcs[i].velocidad = 1 + rand() % 3;
+        pcs[i].anio = 2015 + rand() % 9;
+        pcs[i].cantidad = 1 + rand() % 8;
+        pcs[i].tipo_cpu = tipos[rand() % 6];
+    }
+}
+
+void mostrarPc(computadora pcs[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d\n", pcs[i].velocidad);
+        printf("%d\n", pcs[i].anio);
+        printf("%d\n", pcs[i].cantidad);
+        printf("%s\n", pcs[i].tipo_cpu);
+        printf("\n");
+    }
 }
