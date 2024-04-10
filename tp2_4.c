@@ -12,6 +12,7 @@ struct
 
 void cargarPc(computadora pcs[], int n);
 void mostrarPc(computadora pcs[], int n);
+void mostrarPcMasVieja(computadora pcs[], int n);
 
 char tipos[6][10] = {"Intel", "AMD", "Celeron", "Athlon", "Core", "Pentium"};
 
@@ -20,7 +21,8 @@ int main()
     srand(time(NULL));
     computadora pcs[5];
     cargarPc(pcs, 5);
-    mostrarPc(pcs,5);
+    mostrarPc(pcs, 5);
+    mostrarPcMasVieja(pcs,5);
     return 0;
 }
 
@@ -45,4 +47,20 @@ void mostrarPc(computadora pcs[], int n)
         printf("%s\n", pcs[i].tipo_cpu);
         printf("\n");
     }
+}
+
+void mostrarPcMasVieja(computadora pcs[], int n)
+{
+    computadora masVieja = pcs[0];
+    for (int i = 0; i < n; i++)
+    {
+        if (masVieja.anio > pcs[i].anio)
+            masVieja = pcs[i];
+    }
+    printf("pc mas vieja\n");
+    printf("%d\n", masVieja.velocidad);
+    printf("%d\n", masVieja.anio);
+    printf("%d\n", masVieja.cantidad);
+    printf("%s\n", masVieja.tipo_cpu);
+    printf("\n");
 }
